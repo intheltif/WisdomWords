@@ -24,7 +24,7 @@ public class WisdomWordsCLUDP {
             /**Deals with retrieving the data*/
             byte[] retrieve = new byte[256];
             DatagramPacket incoming = new DatagramPacket(retrieve, retrieve.length);
-            receive.receive(send);
+            receive.receive(incoming);
             String incomingTwo = new String(incoming.getData(), incoming.getOffset(), incoming.getLength());
             System.out.println(incomingTwo);
 
