@@ -1,5 +1,3 @@
-import org.omg.PortableInterceptor.SUCCESSFUL;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,8 +22,6 @@ public class WisdomWordsCLTCP {
     /** The second command line argument */
     private static final int SECOND_ARG = 1;
     
-    private static final String PORT_ERR = "Port must be a numerical value. Try again.";
-
     public static void main(String[] args) {
         InetAddress host;
         int port;
@@ -54,7 +50,7 @@ public class WisdomWordsCLTCP {
 
             // Receive wisdom word and print it to the screen.
             String response = clientReader.readLine();
-            System.out.println(response);
+            System.out.println("\n" + response);
 
             // Closing streams.
             clientInputStream.close();
@@ -63,10 +59,6 @@ public class WisdomWordsCLTCP {
 
             //Closing socket
             client.close();
-
-            //Ending message.
-            System.out.println("\nThank yeens for getting your daily dose of Mountain Wisdom. Y'all come back now, ya hear?");
-
 
         } catch(IOException ioe) {
             System.out.println("I/O error...Something went wrong.");
