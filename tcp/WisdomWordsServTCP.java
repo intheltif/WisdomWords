@@ -40,12 +40,6 @@ public class WisdomWordsServTCP {
         // The filename that holds the wise sayings.
         String file = args[0];
 
-        // Gets a random saying to send to the client.
-        WisdomWords wiseGuy = new WisdomWords(file);
-        Random rand = new Random();
-        int random_index = rand.nextInt(wiseGuy.getSize());
-        String alrightWiseGuy = wiseGuy.getWisdom(random_index);
-        System.out.println("The wise words are: " + alrightWiseGuy);
 
         try {
             // Creates the ServerSocket on port 5500
@@ -68,6 +62,12 @@ public class WisdomWordsServTCP {
                     new BufferedReader(serverInputStream);
                 PrintWriter serverPrintWriter =
                     new PrintWriter(commSocket.getOutputStream(), true);
+
+                // Gets a random saying to send to the client.
+                WisdomWords wiseGuy = new WisdomWords(file);
+                Random rand = new Random();
+                int random_index = rand.nextInt(wiseGuy.getSize());
+                String alrightWiseGuy = wiseGuy.getWisdom(random_index);
 
                 // Sends the new number back to the client.
                 serverPrintWriter.println(alrightWiseGuy);
