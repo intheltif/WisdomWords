@@ -14,7 +14,7 @@ public class WisdomWordsCLTCP {
     private static final int FAILURE = 1;
 
     /** A constant to represent a successful exit */
-    private static final int SUCCESS = 1;
+    private static final int SUCCESS = 0;
 
     /** The first command line argument */
     private static final int FIRST_ARG = 0;
