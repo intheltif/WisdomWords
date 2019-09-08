@@ -19,7 +19,6 @@ public class WisdomWordsServUDP {
                 int rand = random.nextInt(ww.getSize());
 
                 String phrase = ww.getWisdom(rand);
-                System.out.println("PHRASE: " + phrase);
                 byte[] outBuff = phrase.getBytes();
                 InetAddress hostName = DP.getAddress();
                 int port = DP.getPort();
