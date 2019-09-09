@@ -45,11 +45,14 @@ public class WisdomWordsCLTCP {
             PrintWriter clientPrintWriter =
                 new PrintWriter(client.getOutputStream(), true);
 
+
             // Contact the server for a saying.
             clientPrintWriter.println("");
 
+
             // Receive wisdom word and print it to the screen.
             String response = clientReader.readLine();
+    
             System.out.println("\n" + response);
 
             // Closing streams.

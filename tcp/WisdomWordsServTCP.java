@@ -9,7 +9,7 @@ import java.util.Random;
 public class WisdomWordsServTCP {
 
     /** The port we are connecting to. */
-    private static final int PORT = 5500;
+    private static final int PORT = 5432;
     
     /** A constant representing a failed exit */
     private static final int FAILURE = 1;
