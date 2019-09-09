@@ -39,6 +39,12 @@ public class WisdomWordsCLTCP {
      * @param args The command line arguments.
      */
     public static void main(String[] args) {
+
+        if(args.length != EXPECTED_ARGS) {
+            System.out.println("Usage is: java WisdomWordsCLTCP [HOST] [PORT]");
+        }
+
+        //Initializing variables
         InetAddress host;
         int port;
 
@@ -48,7 +54,7 @@ public class WisdomWordsCLTCP {
 
             // Printing confirmation of host and port connection.
             System.out.println("Connecting to " + host +
-                    " on port " + Integer.toString(port) + "...");
+                    " on port " + port + "...");
 
             // Creating client socket
             Socket client = new Socket(host, port);
