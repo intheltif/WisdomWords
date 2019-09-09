@@ -1,3 +1,8 @@
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.util.Random;
 
 /**
  * The UDP Server portion of the Wisdom Words project. The server reads in a 
@@ -11,34 +16,32 @@
  */
 public class WisdomWordsServUDP {
 
-    private Scanner input;
-    
-    /**
-     * The main entry point into the program.
-     *
-     * @param args The command line arguments.
-     */
     public static void main(String[] args) {
+        try {
+            DatagramSocket ds = new DatagramSocket(6666);
+            while(!ds.isClosed()){
+                byte[] buffer = new byte[256];
+                DatagramPacket DP = new DatagramPacket(buffer, 256);
+                ds.receive(DP);
+                
+                
+                WisdomWords ww = new WisdomWords(args[0]);
+                Random random = new Random();
+                int rand = random.nextInt(ww.getSize());
 
-        //TODO finish main.
-        this.input = new Scanner(System.in);
+                String phrase = ww.getWisdom(rand);
+                byte[] outBuff = phrase.getBytes();
+                InetAddress hostName = DP.getAddress();
+                int port = DP.getPort();
 
-        WisdomWordsServUDP udp = new WisdomWordsServUDP();
-        udp.go(args);
-
-    } // end main method.
-
-    public void go(String[] args) {
-        
-        // Print usage message if incorrect number of CL args supplied.
-        if(args.length != 1) {
-            usage();
+                DatagramPacket packetToClient = new DatagramPacket(outBuff, outBuff.length, hostName, port);
+                ds.send(packetToClient);
+            }
+            ds.close();
+    
+        } catch(IOException ioe) {
+            System.out.println("You have encountered an error " + ioe);
         }
+    }
+}
 
-    } // end go method.
-
-    public void usage() {
-        System.out.println("Usage is: ");
-    } // end usage method
-
-} // end WisdomWordsServUDP class
