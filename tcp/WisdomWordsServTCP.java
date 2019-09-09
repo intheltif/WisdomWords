@@ -38,6 +38,8 @@ public class WisdomWordsServTCP {
         WisdomWordsServTCP tcp = new WisdomWordsServTCP();
         tcp.go(args);
 
+        System.exit(SUCCESS);
+
     } // end main method
     
     /**
@@ -45,7 +47,7 @@ public class WisdomWordsServTCP {
      *
      * @param args The command line arguments, received from the main method.
      */
-    public void go(String[] args) {
+    private void go(String[] args) {
 
         if(args.length != 1) {
             usage();
