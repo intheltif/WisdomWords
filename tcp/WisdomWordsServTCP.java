@@ -1,3 +1,14 @@
+
+/**
+ * The TCP Server portion of the Wisdom Words project. The server reads in a 
+ * file containing words of wisdom. Once contacted by the client, sends a
+ * random word of wisdom to them.
+ *
+ * @author Evert Ball
+ * @author Garrett Starkey
+ *
+ * @version 09/20/2019
+ */
 public class WisdomWordsServTCP {
 
     public static void main(String[] args) {
