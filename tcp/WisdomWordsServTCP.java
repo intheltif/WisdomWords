@@ -27,9 +27,13 @@ public class WisdomWordsServTCP {
     /** A constant representing a failed exit */
     private static final int SUCCESS= 0;
 
+    /**
+     * The main entry point into the program. Passes off duties to the go
+     * method to make this project object oriented.
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
-
-        //TODO finish main method
 
         WisdomWordsServTCP tcp = new WisdomWordsServTCP();
         tcp.go(args);
@@ -39,7 +43,7 @@ public class WisdomWordsServTCP {
     /**
      * The method that runs our program.
      *
-     * @param args The command line arguments.
+     * @param args The command line arguments, received from the main method.
      */
     public void go(String[] args) {
 
@@ -101,6 +105,9 @@ public class WisdomWordsServTCP {
         }  // end try-catch
     } // end go method.
 
+    /**
+     * Prints a usage message to stdout.
+     */
     private void usage() {
         System.out.println("Usage is: java WisdomWordsServTCP [FILE]");
     } // end usage method

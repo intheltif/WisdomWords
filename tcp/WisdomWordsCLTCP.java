@@ -5,9 +5,19 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
+/**
+ * The TCP Client portion of the Wisdom Words project. The client contacts
+ * the server, the server responds with a word of wisdom, and the client
+ * prints this word of wisdom to stdout.
+ *
+ * @author Evert Ball
+ * @author Garrett Starkey
+ *
+ * @version 09/20/2019
+ */
 public class WisdomWordsCLTCP {
 
-    /** A constant for the number of expected command line arguemnts */
+    /** A constant for the number of expected command line arguments */
     private static final int EXPECTED_ARGS = 2;
     
     /** A constant to represent a failed exit */
@@ -21,7 +31,13 @@ public class WisdomWordsCLTCP {
     
     /** The second command line argument */
     private static final int SECOND_ARG = 1;
-    
+
+    /**
+     * The main entry point into the program.
+     * TODO Switch this to be Object Oriented (the go method and such)
+     *
+     * @param args The command line arguments.
+     */
     public static void main(String[] args) {
         InetAddress host;
         int port;
