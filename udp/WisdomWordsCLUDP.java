@@ -3,8 +3,21 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+/**
+ * The UDP Client portion of the Wisdom Words project. The client contacts
+ * the server, the server responds with a word of wisdom, and the client
+ * prints this word of wisdom to stdout.
+ *
+ * @author Evert Ball
+ * @author Garrett Starkey
+ *
+ * @version 09/20/2019
+ */
 public class WisdomWordsCLUDP {
+    /** A constant to represent a successful exit */
     private static final int SUCCESS = 0;
+
+    /** A constant to represent a failed exit */
     private static final int FAILURE = 1;
     
     public static void main(String[] args) {
@@ -35,6 +48,6 @@ public class WisdomWordsCLUDP {
         } catch (NumberFormatException input) {
             System.out.println("You have entered an incorrect port number " + input);
             System.exit(FAILURE);
-        }
-    }
+        } // end try-catch
+    } // end main method
 } // end WisdomWordsCLUDP class
