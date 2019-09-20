@@ -32,9 +32,14 @@ public class WisdomWordsCLTCP {
     /** The second command line argument */
     private static final int SECOND_ARG = 1;
 
+    /** A constant string to print out when we encounter an IOException. */
+    private static final String IO_ERROR = "I/O error...Something went wrong.";
+
+    private static final String PORT_ERROR = "Port must be a numerical value." +
+            " Try again.";
+
     /**
      * The main entry point into the program.
-     * TODO Switch this to be Object Oriented (the go method and such)
      *
      * @param args The command line arguments.
      */
@@ -86,10 +91,10 @@ public class WisdomWordsCLTCP {
             client.close();
 
         } catch(IOException ioe) {
-            System.out.println("I/O error...Something went wrong.");
+            System.out.println(IO_ERROR);
             System.exit(FAILURE);
         } catch(NumberFormatException nfe) {
-            System.out.println("Port must be a numerical value. Try again.");
+            System.out.println(PORT_ERROR);
             System.exit(FAILURE);
         } catch(SecurityException se) {
             System.out.println("Security Error: " + se.getMessage());
