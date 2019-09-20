@@ -35,6 +35,7 @@ public class WisdomWordsCLTCP {
     /** A constant string to print out when we encounter an IOException. */
     private static final String IO_ERROR = "I/O error...Something went wrong.";
 
+    /** String to print out when we encounter a NumberFormatException. */
     private static final String PORT_ERROR = "Port must be a numerical value." +
             " Try again.";
 

@@ -30,12 +30,15 @@ public class WisdomWordsServUDP {
 
     /** The first command line argument */
     private static final int FIRST_ARG = 0;
-    
+
+    /** A constant string to print out when we encounter an IOException. */
+    private static final String IO_ERROR = "I/O error...Something went wrong.";
+
     /**
      * The main entry point into the program. Creates the buffer and datagram
      * packet that will be sent back and forth between the server and client.
      *
-     * @param The command line arguments.
+     * @param args The command line arguments.
      */
     public static void main(String[] args) {
         try {
@@ -70,8 +73,11 @@ public class WisdomWordsServUDP {
             ds.close();
     
         } catch(IOException ioe) {
-            System.out.println("You have encountered an error " + ioe);
+            System.out.println(IO_ERROR);
+            System.exit(FAILURE);
         } // end try-catch
+
+        System.exit(SUCCESS);
     } // end main method
 } // end WisdomWordsServUDP class
 
